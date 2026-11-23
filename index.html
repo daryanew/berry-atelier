@@ -2,12 +2,147 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>berry-atelier</title>
+    <meta name="description" content="A cozy little calculator for planning the berries on your next cake." />
+    <meta name="theme-color" content="#fbf8f2" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="stylesheet" href="./site.css" />
+    <title>Berry Atelier — Cake berry calculator</title>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <header class="site-header">
+      <a class="brand" href="#home" aria-label="Berry Atelier home">
+        <span class="brand-mark" aria-hidden="true">✿</span>
+        <span>berry <em>atelier</em></span>
+      </a>
+      <a class="header-link" href="#calculator">Make a little plan <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main id="home">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> A sweet little cake companion</p>
+          <h1 id="hero-title">A little berry<br /><span>math</span> for your cake.</h1>
+          <p class="hero-description">Tell us about your cake and choose your berries. We’ll help you plan a pretty, generous topping.</p>
+          <a class="hero-link" href="#calculator">Let’s make a plan <span aria-hidden="true">↓</span></a>
+          <div class="hero-note"><span aria-hidden="true">♡</span> Made for home bakers and happy occasions</div>
+        </div>
+        <div class="hero-art" aria-label="An illustrated cake topped with berries" role="img">
+          <div class="sun-wash"></div>
+          <svg class="cake-illustration" viewBox="0 0 440 350" aria-hidden="true">
+            <ellipse cx="220" cy="298" rx="157" ry="22" fill="#d9cec0" opacity=".38"/>
+            <path d="M76 160h288v112c0 25-64 45-144 45S76 297 76 272V160Z" fill="#efd5cd"/>
+            <path d="M76 188c30 17 75 28 144 28s114-11 144-28v28c-30 17-75 28-144 28s-114-11-144-28Z" fill="#f7e8df"/>
+            <ellipse cx="220" cy="160" rx="144" ry="58" fill="#fffdf8" stroke="#eadbd0" stroke-width="5"/>
+            <ellipse cx="220" cy="163" rx="124" ry="43" fill="#fff9f1"/>
+            <g fill="#e88e9c">
+              <circle cx="163" cy="145" r="13"/><circle cx="194" cy="170" r="13"/><circle cx="258" cy="143" r="13"/>
+              <circle cx="283" cy="171" r="13"/><circle cx="225" cy="132" r="12"/><circle cx="145" cy="174" r="10"/>
+            </g>
+            <g fill="#786f98">
+              <circle cx="181" cy="129" r="9"/><circle cx="238" cy="173" r="9"/><circle cx="300" cy="149" r="9"/>
+              <circle cx="211" cy="192" r="8"/><circle cx="271" cy="126" r="8"/>
+            </g>
+            <g fill="#91a077">
+              <path d="m171 131 5-13 6 13-6-3Z"/><path d="m253 130 4-12 6 13-6-3Z"/>
+              <path d="m190 173 4-11 6 13-6-3Z"/><path d="m279 174 5-12 5 13-6-3Z"/>
+            </g>
+            <g fill="#f0c1a8">
+              <circle cx="142" cy="149" r="3"/><circle cx="220" cy="157" r="3"/><circle cx="291" cy="191" r="3"/>
+              <circle cx="254" cy="190" r="3"/><circle cx="178" cy="190" r="3"/>
+            </g>
+            <path d="M111 274c0 16 49 30 109 30s109-14 109-30" fill="none" stroke="#e6c6bd" stroke-width="3" opacity=".8"/>
+          </svg>
+          <span class="art-caption">a berry good idea <span aria-hidden="true">✳</span></span>
+          <span class="floating-berry floating-berry-one" aria-hidden="true">✿</span>
+          <span class="floating-berry floating-berry-two" aria-hidden="true">✦</span>
+        </div>
+      </section>
+
+      <section class="calculator-section" id="calculator" aria-labelledby="calculator-title">
+        <div class="section-heading">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> Your topping planner</p>
+          <h2 id="calculator-title">Let’s make it berry lovely.</h2>
+          <p>A few details are all we need for a helpful estimate.</p>
+        </div>
+
+        <div class="calculator">
+          <div class="controls">
+            <section class="control-step" aria-labelledby="shape-heading">
+              <div class="step-heading">
+                <span class="step-number">01</span>
+                <div><h3 id="shape-heading">Your cake shape</h3><p>What are we decorating?</p></div>
+              </div>
+              <div class="shape-options" role="group" aria-label="Cake shape">
+                <button class="shape-option is-selected" type="button" data-shape="circle" aria-pressed="true">
+                  <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="10"/></svg>
+                  <span>Round</span>
+                </button>
+                <button class="shape-option" type="button" data-shape="square" aria-pressed="false">
+                  <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="6" y="6" width="20" height="20" rx="2"/></svg>
+                  <span>Square</span>
+                </button>
+                <button class="shape-option" type="button" data-shape="rectangle" aria-pressed="false">
+                  <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="8" width="24" height="16" rx="2"/></svg>
+                  <span>Rectangle</span>
+                </button>
+              </div>
+            </section>
+
+            <section class="control-step" aria-labelledby="dimensions-heading">
+              <div class="step-heading">
+                <span class="step-number">02</span>
+                <div><h3 id="dimensions-heading">Cake measurements</h3><p>Measure across the top in centimetres.</p></div>
+              </div>
+              <div id="dimension-fields"></div>
+              <p class="field-error" id="dimension-error" role="alert" hidden>Please enter a measurement between 5 and 60 cm.</p>
+              <div class="surface-note"><span>Top surface area</span><strong id="surface-area">—</strong></div>
+            </section>
+
+            <section class="control-step berry-step" aria-labelledby="berries-heading">
+              <div class="step-heading">
+                <span class="step-number">03</span>
+                <div><h3 id="berries-heading">Pick your berries</h3><p>Choose the star of your cake.</p></div>
+              </div>
+              <div class="berry-options" id="berry-options" role="group" aria-label="Choose a berry"></div>
+              <div class="reserve-row">
+                <label for="reserve">A little extra, just in case</label>
+                <select id="reserve">
+                  <option value="5">5% extra</option>
+                  <option value="10" selected>10% extra</option>
+                  <option value="15">15% extra</option>
+                </select>
+              </div>
+            </section>
+          </div>
+
+          <aside class="result-panel" aria-live="polite">
+            <div class="result-topline"><span class="result-sparkle" aria-hidden="true">✳</span><span>Your berry forecast</span></div>
+            <div class="cake-preview">
+              <svg id="cake-preview" viewBox="0 0 320 280" role="img" aria-label="Illustration of the cake surface with berries"></svg>
+              <span class="preview-caption">A little sketch of your topping</span>
+            </div>
+            <div class="result-copy">
+              <div class="estimate-heading">
+                <p class="result-label">To cover your cake, you’ll need about</p>
+                <button class="unit-toggle" id="unit-toggle" type="button" aria-pressed="false">Convert to kg</button>
+              </div>
+              <p class="berry-count"><strong id="berry-count">—</strong><span id="berry-count-label">berries</span></p>
+              <p class="purchase-line">With a little extra, plan for <strong id="purchase-count">—</strong> <span id="purchase-unit">berries</span>.</p>
+              <div class="result-divider"></div>
+              <div class="result-detail"><span>Estimated surface area</span><strong id="result-area">—</strong></div>
+              <p class="estimate-note" id="estimate-note">A cozy estimate, not a promise from nature. Berry sizes vary, so a few extras are always a lovely idea.</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <footer class="site-footer">
+        <span class="footer-flower" aria-hidden="true">✿</span>
+        <p>Made with a little love, and a lot of berries.</p>
+        <a href="#home">Back to the top ↑</a>
+      </footer>
+    </main>
+    <script type="module" src="./site.js"></script>
   </body>
 </html>
